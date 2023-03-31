@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 
 import { Activity } from '@models/index';
-import { DATE_FORMAT, ROUTES } from '@shared/constants';
+import { DATE_FORMAT, ROUTES, IMAGE_URIS } from '@shared/constants';
 
 import { Link } from 'react-router-dom';
 import { Header, Image, Item, Label, Segment } from 'semantic-ui-react';
@@ -37,11 +37,7 @@ function ActivityHeaderPhoto({ activity }: Props) {
       {activity.isCancelled && (
         <Label style={RibbonLabelStyles} ribbon color="red" content="Cancelled" />
       )}
-      <Image
-        fluid
-        src={`/assets/categoryImages/${activity.category}.jpg`}
-        style={activityImageStyle}
-      />
+      <Image fluid src={`${IMAGE_URIS.BASE}/${activity.category}.jpg`} style={activityImageStyle} />
       <Segment style={activityImageTextStyle} basic>
         <Item.Group>
           <Item>
