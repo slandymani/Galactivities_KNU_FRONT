@@ -10,8 +10,11 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@assets': path.resolve(__dirname, './src/assets'),
-      '@pages': path.resolve(__dirname, './src/pages'),
+      '@features': path.resolve(__dirname, './src/features'),
       '@shared': path.resolve(__dirname, './src/shared'),
+      '@app': path.resolve(__dirname, './src/app'),
+      '@models': path.resolve(__dirname, './src/models'),
+      '@store': path.resolve(__dirname, './src/app/store'),
     },
   },
   server: {

@@ -18,9 +18,12 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@pages/*": ["src/pages/*"],
+      "@features/*": ["src/features/*"],
       "@assets/*": ["src/assets/*"],
-      "@shared/*": ["src/shared/*"]
+      "@shared/*": ["src/shared/*"],
+      "@app/*": ["src/app/*"],
+      "@models/*": ["src/models/*"],
+      "@store/*": ["src/app/store/*"],
     }
   },
   "include": ["src"],
