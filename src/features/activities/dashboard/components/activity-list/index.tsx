@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 
 import { format } from 'date-fns';
-import { DATE_FORMAT } from 'app/shared/contants';
+import { DATE_FORMAT } from '@shared/constants';
 
 import { Fragment } from 'react';
 import { Header, SemanticCOLORS } from 'semantic-ui-react';

@@ -1,12 +1,12 @@
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 
 import { Link } from 'react-router-dom';
-import { UserProfile } from 'models/users/UserProfile';
+import { UserProfile } from '@models/index';
+import { IMAGE_URIS, ROUTES } from '@shared/constants';
 
 import { Image, List, Popup, Segment } from 'semantic-ui-react';
-import ProfileCard from 'features/profiles/components/profile-main/ProfileCard.component';
-import { IMAGE_URIS, ROUTES } from '@shared/constants';
+import ProfileCard from '@features/profiles/components/profile-main';
 
 interface Props {
   attendees: UserProfile[];

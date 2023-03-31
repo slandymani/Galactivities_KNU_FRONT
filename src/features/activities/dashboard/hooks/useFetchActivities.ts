@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 
 export default function useFetchActivities() {
   const {

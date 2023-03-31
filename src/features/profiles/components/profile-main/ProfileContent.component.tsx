@@ -1,11 +1,13 @@
-import { Tab } from 'semantic-ui-react';
 import { observer } from 'mobx-react-lite';
+import { useMobXStore } from '@store/index';
+
+import { UserProfile } from '@models/index';
+import { Tab } from 'semantic-ui-react';
+
 import ProfileImages from '../profile-tabs/photos/ProfilePhotos.component';
-import { UserProfile } from '../../../../models/users/UserProfile';
 import ProfileAbout from '../profile-tabs/about/ProfileAbout.component';
 import ProfileActivities from '../profile-tabs/activities/ProfileActivities.component';
 import ProfileFollowings from '../profile-tabs/followers[ings]/ProfileFollowings.component';
-import { useMobXStore } from '@app/store';
 
 interface Props {
   profile: UserProfile;

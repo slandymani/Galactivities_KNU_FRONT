@@ -1,9 +1,9 @@
 import { useState, SyntheticEvent } from 'react';
 
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 
-import { ProfileImage } from 'models/users/UserProfile';
+import { ProfileImage } from '@models/index';
 import { Button, Card, Image } from 'semantic-ui-react';
 
 interface Props {

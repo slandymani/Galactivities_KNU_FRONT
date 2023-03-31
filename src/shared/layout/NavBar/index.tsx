@@ -1,10 +1,8 @@
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
-
-import { APP_NAME, IMAGE_URIS, ROUTES } from 'app/shared/contants';
+import { useMobXStore } from '@app/store';
 
 import { Link, NavLink } from 'react-router-dom';
-
+import { APP_NAME, IMAGE_URIS, ROUTES } from '@shared/constants';
 import { Button, Container, Dropdown, Image, Menu } from 'semantic-ui-react';
 
 function NavBar() {

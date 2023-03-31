@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import { useState } from 'react';
 
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 
 import { Button, Grid, Header, Tab } from 'semantic-ui-react';
 import ProfileEditForm from './ProfileEditForm.component';

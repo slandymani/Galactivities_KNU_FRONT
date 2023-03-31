@@ -19,11 +19,12 @@
     "paths": {
       "@/*": ["src/*"],
       "@features/*": ["src/features/*"],
+      "@activities/*": ["src/features/activities/*"],
       "@assets/*": ["src/assets/*"],
       "@shared/*": ["src/shared/*"],
       "@app/*": ["src/app/*"],
       "@models/*": ["src/models/*"],
-      "@store/*": ["src/app/store/*"],
+      "@store/*": ["src/app/store/*"]
     }
   },
   "include": ["src"],

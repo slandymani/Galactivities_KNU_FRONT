@@ -1,13 +1,13 @@
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 
 import * as Yup from 'yup';
 import { ErrorMessage, Form, Formik } from 'formik';
-import { APP_NAME } from 'app/shared/contants';
+import { APP_NAME } from '@shared/constants';
 
 import { Button, Header } from 'semantic-ui-react';
-import TextInput from 'app/shared/components/form-inputs/components/FormTextInput.component';
-import { ValidationErrorList } from 'features/errors';
+import { TextInput } from '@shared/components/form-inputs';
+import { ValidationErrorList } from '@features/errors';
 
 const validationSchema = Yup.object({
   displayName: Yup.string().required(),

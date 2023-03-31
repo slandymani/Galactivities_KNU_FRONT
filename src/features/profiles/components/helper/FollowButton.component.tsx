@@ -1,9 +1,9 @@
 import { SyntheticEvent } from 'react';
 
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 
-import { UserProfile } from 'models/users/UserProfile';
+import { UserProfile } from '@models/index';
 import { Button, Reveal } from 'semantic-ui-react';
 
 interface Props {

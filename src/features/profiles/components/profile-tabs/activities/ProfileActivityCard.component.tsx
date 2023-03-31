@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
-import { UserActivity } from 'models/users/UserProfile';
-import { DATE_FORMAT, IMAGE_URIS, ROUTES } from 'app/shared/contants';
+import { UserActivity } from '@models/index';
+import { DATE_FORMAT, IMAGE_URIS, ROUTES } from '@shared/constants';
 
 import { Link } from 'react-router-dom';
 import { Card, Divider, Image } from 'semantic-ui-react';
@@ -10,19 +10,25 @@ const CardStyles = {
   boxShadow: '2px 1px 2px 1px rgba(0, 0, 0, .4)',
 };
 
-function ProfileActivityCard(props: { activity: UserActivity }) {
+interface Props {
+  activity: UserActivity;
+}
+
+function ProfileActivityCard({ activity }: Props) {
+  const { id, date, title, category } = activity;
+
   return (
-    <Card as={Link} to={`${ROUTES.ACTIVITIES.LIST}/${props.activity.id}`} style={CardStyles}>
+    <Card as={Link} to={`${ROUTES.ACTIVITIES.LIST}/${id}`} style={CardStyles}>
       <Image
-        src={`${IMAGE_URIS.BASE}/${props.activity.category}.jpg`}
+        src={`${IMAGE_URIS.BASE}/${category}.jpg`}
         style={{ minHeight: '100px', objectFit: 'cover' }}
       />
       <Card.Content>
-        <Card.Header textAlign="center">{props.activity.title}</Card.Header>
+        <Card.Header textAlign="center">{title}</Card.Header>
         <Divider style={{ margin: '.25rem' }} />
         <Card.Meta textAlign="center">
-          <div>{format(new Date(props.activity.date), DATE_FORMAT.DAY_WITH_MONTH_LOWERCASE)}</div>
-          <div>{format(new Date(props.activity.date), DATE_FORMAT.FULL_TIME_ABBR)}</div>
+          <div>{format(new Date(date), DATE_FORMAT.DAY_WITH_MONTH_LOWERCASE)}</div>
+          <div>{format(new Date(date), DATE_FORMAT.FULL_TIME_ABBR)}</div>
         </Card.Meta>
       </Card.Content>
     </Card>

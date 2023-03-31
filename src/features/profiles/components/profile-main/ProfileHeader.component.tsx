@@ -1,8 +1,9 @@
-import { Divider, Grid, Header, Item, Segment, Statistic } from 'semantic-ui-react';
 import { observer } from 'mobx-react-lite';
-import { UserProfile } from '../../../../models/users/UserProfile';
-import FollowButton from '../helper/FollowButton.component';
 import { IMAGE_URIS } from '@shared/constants';
+import { UserProfile } from '@models/index';
+
+import { Divider, Grid, Header, Item, Segment, Statistic } from 'semantic-ui-react';
+import FollowButton from '../helper/FollowButton.component';
 
 interface Props {
   profile: UserProfile;

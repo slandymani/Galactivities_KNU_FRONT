@@ -1,5 +1,6 @@
-import { Label } from 'semantic-ui-react';
+/* eslint-disable react/jsx-no-useless-fragment */
 import { FieldMetaProps } from 'formik';
+import { Label } from 'semantic-ui-react';
 
 interface Props {
   meta: FieldMetaProps<any>;

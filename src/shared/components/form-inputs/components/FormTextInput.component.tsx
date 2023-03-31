@@ -10,14 +10,15 @@ interface Props {
 }
 
 function TextInput(props: Props) {
+  const { label } = props;
   const [field, meta] = useField(props);
 
   const isErrorState = meta.touched && !!meta.error;
 
   return (
     <Form.Field error={isErrorState}>
-      <label>{props.label}</label>
-      <input {...field} {...props} />
+      <label htmlFor="textInput">{label}</label>
+      <input id="textInput" {...field} {...props} />
       <ErrorLabel meta={meta} />
     </Form.Field>
   );

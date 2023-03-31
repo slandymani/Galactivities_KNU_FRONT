@@ -1,7 +1,8 @@
+import { Fragment, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
-import React, { Fragment, useEffect } from 'react';
+import { useMobXStore } from '@store/index';
+
 import { Segment, Header, Comment, Divider } from 'semantic-ui-react';
-import { useMobXStore } from 'app/store/root.store';
 import CommentItem from './ActivityChatItem.component';
 import ActivityChatForm from './ActivityChatForm.component';
 

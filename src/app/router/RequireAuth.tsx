@@ -1,4 +1,4 @@
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
 function RequireAuth() {

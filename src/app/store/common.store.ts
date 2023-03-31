@@ -7,7 +7,7 @@ export default class CommonStore {
 
   appLoaded = false;
 
-  public constructor() {
+  constructor() {
     makeAutoObservable(this);
 
     reaction(

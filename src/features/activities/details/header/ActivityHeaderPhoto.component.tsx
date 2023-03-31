@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 
-import { Activity } from 'models/activities/Activity';
-import { DATE_FORMAT, ROUTES } from 'app/shared/contants';
+import { Activity } from '@models/index';
+import { DATE_FORMAT, ROUTES } from '@shared/constants';
 
 import { Link } from 'react-router-dom';
 import { Header, Image, Item, Label, Segment } from 'semantic-ui-react';

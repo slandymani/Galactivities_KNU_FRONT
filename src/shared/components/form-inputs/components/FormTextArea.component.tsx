@@ -9,14 +9,13 @@ interface Props {
   label?: string;
 }
 
-function TextArea(props: Props) {
-  const [field, meta] = useField(props.name);
-  console.log(field);
+function TextArea({ name, label, rows, ...rest }: Props) {
+  const [field, meta] = useField(name);
 
   return (
     <Form.Field error={meta.touched && !!meta.error}>
-      <label>{props.label}</label>
-      <textarea {...field} {...props} rows={props.rows ?? 3} />
+      <label htmlFor="textarea">{label}</label>
+      <textarea id="textarea" {...field} name={name} {...rest} rows={rows ?? 3} />
       <ErrorLabel meta={meta} />
     </Form.Field>
   );

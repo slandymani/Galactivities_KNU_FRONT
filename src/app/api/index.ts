@@ -1,13 +1,19 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
-import { Activity, ActivityFormValues } from 'models/activities/Activity';
-import { User, UserFormValues } from 'models/users/User';
-import { UserProfile, UserActivity, ProfileImage } from 'models/users/UserProfile';
-import { PaginatedResult } from 'models/Pagination';
+import {
+  Activity,
+  ActivityFormValues,
+  User,
+  UserFormValues,
+  UserProfile,
+  UserActivity,
+  ProfileImage,
+  PaginatedResult,
+} from '@models/index';
 
-import { store } from 'app/store/root.store';
-import { router } from 'app/router/Routes';
-import { ROUTES } from 'app/shared/contants';
+import { store } from '@store/index';
+import { router } from '@app/router';
+import { ROUTES } from '@shared/constants';
 
 import { toast } from 'react-toastify';
 import { ReasonPhrases, StatusCodes } from 'http-status-codes';
@@ -18,7 +24,7 @@ const sleep = (delay: number) => {
   });
 };
 
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 
 axios.interceptors.request.use((config) => {
   const token = store.commonStore.jwtToken;
@@ -60,17 +66,17 @@ axios.interceptors.response.use(
         if (typeof data === 'string') {
           return toast.error(data);
         }
-        if (method === 'get' && errors.hasOwnProperty('id')) {
+        if (method === 'get' && 'id' in errors) {
           router.navigate(ROUTES.ERROR.NOT_FOUND);
         }
 
         if (errors) {
-          const modalStateErrors = [];
-          for (const key in errors) {
+          const modalStateErrors: any = [];
+          Object.keys(error).forEach((key) => {
             if (errors[key]) {
               modalStateErrors.push(errors[key]);
             }
-          }
+          });
           throw modalStateErrors.flat();
         }
         break;

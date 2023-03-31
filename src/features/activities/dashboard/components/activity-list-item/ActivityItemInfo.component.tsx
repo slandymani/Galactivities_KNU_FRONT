@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 
-import { Activity } from 'models/activities/Activity';
-import { DATE_FORMAT } from 'app/shared/contants';
+import { Activity } from '@models/index';
+import { DATE_FORMAT } from '@shared/constants';
 
 import { Icon, Segment } from 'semantic-ui-react';
 

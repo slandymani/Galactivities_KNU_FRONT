@@ -1,14 +1,12 @@
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
-
-import { UserProfile } from 'models/users/UserProfile';
+import { useMobXStore } from '@store/index';
+import { UserProfile } from '@models/index';
 
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 
 import { Button, Form } from 'semantic-ui-react';
-import TextInput from 'app/shared/components/form-inputs/components/FormTextInput.component';
-import TextArea from 'app/shared/components/form-inputs/components/FormTextArea.component';
+import { TextInput, TextArea } from '@shared/components/form-inputs';
 
 interface Props {
   setEditMode: (value: boolean) => void;
@@ -22,7 +20,7 @@ function ProfileEditForm({ setEditMode }: Props) {
   const { profileStore } = useMobXStore();
   const { profile, updateProfile } = profileStore;
 
-  const handleSubmit = async (values: Partial<UserProfile>) => {
+  const onSubmit = async (values: Partial<UserProfile>) => {
     await updateProfile(values);
     setEditMode(false);
   };
@@ -33,7 +31,7 @@ function ProfileEditForm({ setEditMode }: Props) {
         displayName: profile?.displayName,
         biography: profile?.biography,
       }}
-      onSubmit={(values) => handleSubmit(values)}
+      onSubmit={(values) => onSubmit(values)}
       validationSchema={validationSchema}
     >
       {({ handleSubmit, isSubmitting, isValid, dirty }) => (

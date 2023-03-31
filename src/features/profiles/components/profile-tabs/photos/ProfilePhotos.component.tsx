@@ -1,13 +1,14 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import { useState } from 'react';
 
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
+import { UserProfile } from '@models/index';
 
-import { UserProfile } from 'models/users/UserProfile';
 import Viewer from 'react-viewer';
-
 import { Button, Card, Grid, Header, Tab } from 'semantic-ui-react';
-import ImageUploadWidget from 'features/image-upload/components/ImageUploadWidget.component';
+
+import ImageUploadWidget from '@features/image-upload/components';
 import ProfilePhotoItem from './ProfilePhotoItem.component';
 
 interface Props {

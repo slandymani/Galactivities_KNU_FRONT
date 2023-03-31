@@ -1,11 +1,10 @@
 import { observer } from 'mobx-react-lite';
-
 import { Link } from 'react-router-dom';
 
-import { Button, ButtonGroup, Card, Divider, Icon, Image, SemanticSIZES } from 'semantic-ui-react';
 import { IMAGE_URIS, ROUTES } from '@shared/constants';
-import { UserProfile } from '../../../../models/users/UserProfile';
+import { UserProfile } from '@models/index';
 
+import { Button, ButtonGroup, Card, Divider, Icon, Image, SemanticSIZES } from 'semantic-ui-react';
 import FollowButton from '../helper/FollowButton.component';
 
 interface Props {
@@ -13,10 +12,11 @@ interface Props {
   size?: SemanticSIZES;
 }
 
-const truncate = (str?: string, upTo: number = 50) => {
+const truncate = (str?: string, upTo: number = 50): string => {
   if (str) {
     return str.length > upTo ? `${str.substring(0, upTo - 3)}...` : str;
   }
+  return '';
 };
 
 function ProfileCard({ profile, size = 'medium' }: Props) {

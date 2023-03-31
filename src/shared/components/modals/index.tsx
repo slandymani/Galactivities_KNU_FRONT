@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@app/store';
 
 import { Modal } from 'semantic-ui-react';
 

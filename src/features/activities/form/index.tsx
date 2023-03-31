@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 
-import { ActivityFormValues } from 'models/activities/Activity';
-import { categoryOptions } from 'models/activities/Category';
-import { DATE_FORMAT, ROUTES } from 'app/shared/contants';
+import { ActivityFormValues, categoryOptions } from '@models/index';
+import { DATE_FORMAT, ROUTES } from '@shared/constants';
 
 import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
@@ -14,7 +13,7 @@ import { Form, Formik } from 'formik';
 import { v4 as uuid } from 'uuid';
 
 import { Button, Divider, Header, Segment } from 'semantic-ui-react';
-import { SelectInput, TextInput, TextArea, DateInput } from 'app/shared/components/form-inputs';
+import { SelectInput, TextInput, TextArea, DateInput } from '@shared/components/form-inputs';
 
 function ActivityForm() {
   const { activityStore } = useMobXStore();
@@ -40,17 +39,17 @@ function ActivityForm() {
     }
   }, [id, fetchActivity]);
 
-  const handleFormSubmit = async (activity: ActivityFormValues) => {
+  const handleFormSubmit = async (act: ActivityFormValues) => {
     setSubmitMode(true);
 
-    if (activity.id) {
-      await updateActivity(activity);
+    if (act.id) {
+      await updateActivity(act);
     } else {
-      activity.id = uuid();
-      await createActivity(activity);
+      act.id = uuid();
+      await createActivity(act);
     }
 
-    navigate(`${ROUTES.ACTIVITIES.LIST}/${activity.id}`);
+    navigate(`${ROUTES.ACTIVITIES.LIST}/${act.id}`);
     setSubmitMode(false);
   };
 

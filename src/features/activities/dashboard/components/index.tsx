@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@app/store';
 
-import { PagingParams } from 'models/Pagination';
+import { PagingParams } from '@models/index';
 
 import InfiniteScroll from 'react-infinite-scroller';
 import { Grid, Loader } from 'semantic-ui-react';

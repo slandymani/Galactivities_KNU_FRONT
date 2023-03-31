@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { IMAGE_URIS, ROUTES } from 'app/shared/contants';
-import { Activity } from 'models/activities/Activity';
+import { Activity } from '@models/index';
 
+import { IMAGE_URIS, ROUTES } from '@shared/constants';
 import { Item, Label, Segment } from 'semantic-ui-react';
 
 interface Props {

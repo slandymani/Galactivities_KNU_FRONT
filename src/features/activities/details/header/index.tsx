@@ -1,10 +1,10 @@
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 
-import { Activity } from 'models/activities/Activity';
+import { Activity } from '@models/index';
 
 import { Link } from 'react-router-dom';
-import { ROUTES } from 'app/shared/contants';
+import { ROUTES } from '@shared/constants';
 
 import { Button, Segment } from 'semantic-ui-react';
 import ActivityHeaderPhoto from './ActivityHeaderPhoto.component';

@@ -1,5 +1,5 @@
-import { IMAGE_URIS, ROUTES } from 'app/shared/contants';
-import { UserProfile } from 'models/users/UserProfile';
+import { UserProfile } from '@models/index';
+import { IMAGE_URIS, ROUTES } from '@shared/constants';
 
 import { Link } from 'react-router-dom';
 import { Image, Item, Label } from 'semantic-ui-react';

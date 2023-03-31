@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
+import { FilterType } from '@store/activity.store';
 
 import { Header, Menu } from 'semantic-ui-react';
-import { FilterType } from 'app/store/activity.store';
 
 const FilterHeaderStyles = {
   borderRadius: '6px',

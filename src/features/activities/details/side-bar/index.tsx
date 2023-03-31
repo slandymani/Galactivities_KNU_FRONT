@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { Activity } from 'models/activities/Activity';
+import { Activity } from '@models/index';
 
 import { Segment, List, Item } from 'semantic-ui-react';
 import ActivitySideBarItem from './ActivitySideBarItem.component';

@@ -3,7 +3,7 @@ import { Button, ButtonGroup, Grid, Header } from 'semantic-ui-react';
 import useUrlRevoke from '../hooks/useUrlRevoke';
 
 import UploadWidgetDropzone from './UploadWidgetDropzone.component';
-import UploadWidgetCropper from './upload-widget-cropper/UploadWidgetCropper.component';
+import UploadWidgetCropper from './upload-widget-cropper';
 
 interface Props {
   loading: boolean;

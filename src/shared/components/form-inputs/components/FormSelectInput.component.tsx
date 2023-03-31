@@ -9,18 +9,19 @@ interface Props {
   label?: string;
 }
 
-function SelectInput(props: Props) {
-  const [field, meta, helpers] = useField(props.name);
+function SelectInput({ label, name, options, placeholder }: Props) {
+  const [field, meta, helpers] = useField(name);
 
   return (
     <Form.Field error={meta.touched && !!meta.error}>
-      <label>{props.label}</label>
+      <label htmlFor="select">{label}</label>
       <Select
+        id="select"
         value={field?.value}
-        options={props.options}
+        options={options}
         onChange={(_, data) => helpers.setValue(data.value)}
         onBlur={() => helpers.setTouched(true)}
-        placeholder={props.placeholder}
+        placeholder={placeholder}
         closeOnEscape
       />
       <ErrorLabel meta={meta} />

@@ -1,16 +1,16 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { useMobXStore } from 'app/store/root.store';
 import { observer } from 'mobx-react-lite';
+import { useMobXStore } from '@store/index';
 
 import { Grid } from 'semantic-ui-react';
-import Spinner from 'app/shared/components/loaders/Spinner.component';
+import Spinner from '@shared/components/loaders';
 
-import { useEffect } from 'react';
-import ActivityHeader from './header';
 import ActivityInfo from './ActivityInfo.component';
-import ActivityChat from './chat';
 import ActivitySideBar from './side-bar';
+import ActivityHeader from './header';
+import ActivityChat from './chat';
 
 function ActivityDetails() {
   const { id } = useParams<{ id: string }>();

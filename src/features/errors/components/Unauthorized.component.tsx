@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ROUTES } from 'app/shared/contants';
+import { ROUTES } from '@shared/constants';
 
 import { Button, Header, Icon, Segment } from 'semantic-ui-react';
 

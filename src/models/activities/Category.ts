@@ -3,7 +3,7 @@ interface Category {
   value: string;
 }
 
-export const categoryOptions: Category[] = [
+const categoryOptions: Category[] = [
   { text: 'Drinks', value: 'drinks' },
   { text: 'Culture', value: 'culture' },
   { text: 'Film', value: 'film' },
@@ -11,3 +11,5 @@ export const categoryOptions: Category[] = [
   { text: 'Music', value: 'music' },
   { text: 'Travel', value: 'travel' },
 ];
+
+export default categoryOptions;

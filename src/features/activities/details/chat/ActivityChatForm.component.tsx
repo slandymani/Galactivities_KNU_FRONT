@@ -1,7 +1,8 @@
+import { Loader } from 'semantic-ui-react';
+import { useMobXStore } from '@store/index';
+
 import * as Yup from 'yup';
 import { Field, FieldProps, Form, Formik } from 'formik';
-import { Loader } from 'semantic-ui-react';
-import { useMobXStore } from 'app/store/root.store';
 
 function ActivityChatForm() {
   const {
@@ -32,7 +33,7 @@ function ActivityChatForm() {
                     }
                     if (e.key === 'Enter' && !e.shiftKey) {
                       e.preventDefault();
-                      isValid && handleSubmit();
+                      if (isValid) handleSubmit();
                     }
                   }}
                 />

@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 
 import { Card, Grid, Header, Tab } from 'semantic-ui-react';
-import ProfileCard from '../../profile-main/ProfileCard.component';
+import ProfileCard from '@features/profiles/components/profile-main';
 
 function ProfileFollowings() {
   const { profileStore } = useMobXStore();
@@ -25,9 +25,7 @@ function ProfileFollowings() {
         <Grid.Column width={16}>
           <Card.Group itemsPerRow={3}>
             {followings.length !== 0 ? (
-              followings.map((profile) => (
-                <ProfileCard size="mini" key={profile.username} profile={profile} />
-              ))
+              followings.map((p) => <ProfileCard size="mini" key={p.username} profile={profile!} />)
             ) : (
               <Header
                 as="h3"

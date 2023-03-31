@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 
 import { Grid } from 'semantic-ui-react';
-import Spinner from 'app/shared/components/loaders/Spinner.component';
+import Spinner from '@shared/components/loaders';
 
 import ProfileHeader from './profile-main/ProfileHeader.component';
 import ProfileContent from './profile-main/ProfileContent.component';

@@ -11,7 +11,7 @@ export default class ModalStore {
     body: null,
   };
 
-  public constructor() {
+  constructor() {
     makeAutoObservable(this);
   }
 

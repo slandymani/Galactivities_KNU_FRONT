@@ -5,9 +5,9 @@ import {
   HubConnectionBuilder,
   LogLevel,
 } from '@microsoft/signalr';
-import Comment from 'models/comments/Comment';
-import * as process from 'process';
-import { store } from './index';
+
+import { Comment } from '@models/index';
+import { store } from '@store/index';
 
 export default class CommentStore {
   comments: Comment[] = [];
@@ -21,7 +21,7 @@ export default class CommentStore {
   public createHubConnection = (activityId?: string) => {
     if (activityId) {
       this.hubConnection = new HubConnectionBuilder()
-        .withUrl(`${process.env.REACT_APP_CHAT_URL}?activityId=${activityId}`, {
+        .withUrl(`${import.meta.env.VITE_API_CHAT_URL}?activityId=${activityId}`, {
           skipNegotiation: true,
           transport: HttpTransportType.WebSockets,
           accessTokenFactory: () => store.userStore.user?.token ?? '',

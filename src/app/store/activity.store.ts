@@ -1,13 +1,10 @@
 import { makeAutoObservable, reaction, runInAction } from 'mobx';
-
-import { Activity, ActivityFormValues } from 'models/activities/Activity';
-
 import { format } from 'date-fns';
 
-import { UserProfile } from 'models/users/UserProfile';
-import { Pagination, PagingParams } from 'models/Pagination';
-import { store } from './index';
-import agent from '../api';
+import { Activity, ActivityFormValues, UserProfile, Pagination, PagingParams } from '@models/index';
+
+import { store } from '@store/index';
+import agent from '@app/api';
 
 export type SortType =
   | 'date'
@@ -46,7 +43,7 @@ export default class ActivityStore {
 
   private currentLength: number = 0;
 
-  public constructor() {
+  constructor() {
     makeAutoObservable(this);
 
     const onReaction = () => {
@@ -65,7 +62,7 @@ export default class ActivityStore {
 
   public setFilter = (filter: FilterType, value?: any) => {
     const resetFilter = () => {
-      this.activityFilter.forEach((value, key) => {
+      this.activityFilter.forEach((_, key) => {
         if (key !== FilterType.BY_DATE) {
           this.activityFilter.delete(key);
         }
@@ -89,6 +86,8 @@ export default class ActivityStore {
         this.activityFilter.delete(FilterType.BY_DATE);
         this.activityFilter.set(FilterType.BY_DATE, value);
         break;
+      default:
+        break;
     }
   };
 
@@ -96,7 +95,11 @@ export default class ActivityStore {
     this.activityRegistry.forEach(({ attendees }) => {
       attendees.forEach((attendee) => {
         if (attendee.username === username) {
-          attendee.isFollowing ? attendee.followersCount-- : attendee.followersCount++;
+          if (attendee.isFollowing) {
+            attendee.followersCount -= 1;
+          } else {
+            attendee.followersCount += 1;
+          }
           attendee.isFollowing = !attendee.isFollowing;
         }
       });
@@ -250,7 +253,9 @@ export default class ActivityStore {
     } catch (error) {
       console.log(error);
     } finally {
-      runInAction(() => (this.isLoadingInitial = false));
+      runInAction(() => {
+        this.isLoadingInitial = false;
+      });
     }
   };
 
@@ -280,7 +285,9 @@ export default class ActivityStore {
     } catch (error) {
       console.log(error);
     } finally {
-      runInAction(() => (this.isLoadingInitial = false));
+      runInAction(() => {
+        this.isLoadingInitial = false;
+      });
     }
   };
 }

@@ -1,12 +1,13 @@
 import { createBrowserRouter, RouteObject } from 'react-router-dom';
-import { ROUTES } from 'app/shared/contants';
+import { ROUTES } from '@shared/constants';
 
-import App from 'app/layout/app-component/App.component';
-import ActivityDashboard from 'features/activities/dashboard/components/ActivityDashboard.component';
-import ActivityDetails from 'features/activities/details/ActivityDetails.component';
-import ActivityForm from 'features/activities/form/ActivityForm.component';
-import ProfilePage from 'features/profiles/components/ProfilePage.component';
-import { NotFound, Unauthorized } from 'features/errors';
+import App from '@/App';
+import ActivityDashboard from '@activities/dashboard/components';
+import ActivityForm from '@features/activities/form';
+import ActivityDetails from '@activities/details';
+import ProfilePage from '@features/profiles/components';
+
+import { NotFound, Unauthorized } from '@features/errors';
 import RequireAuth from './RequireAuth';
 
 export const routes: RouteObject[] = [

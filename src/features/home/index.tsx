@@ -1,13 +1,13 @@
 import './HomePage.styles.scss';
 
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
+import { useMobXStore } from '@store/index';
 
 import { Link } from 'react-router-dom';
-import { APP_NAME, IMAGE_URIS, ROUTES } from 'app/shared/contants';
+import { APP_NAME, IMAGE_URIS, ROUTES } from '@shared/constants';
 
 import { Button, Container, Header, Image, Segment } from 'semantic-ui-react';
-import { LoginForm, RegisterForm } from 'features/authentication';
+import { LoginForm, RegisterForm } from '@features/authentication';
 
 function HomePage() {
   const { userStore, modalStore } = useMobXStore();

@@ -1,5 +1,5 @@
-import { useMobXStore } from 'app/store/root.store';
-import { FilterType } from 'app/store/activity.store';
+import { useMobXStore } from '@store/index';
+import { FilterType } from '@store/activity.store';
 import { Button, Container, Header, Icon, Segment } from 'semantic-ui-react';
 
 function NoActivitiesFound() {

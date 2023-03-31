@@ -1,12 +1,11 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 
-import agent from 'app/api/agent';
-import { store } from 'app/store/root.store';
+import agent from '@app/api';
+import { store } from '@store/index';
+import { User, UserFormValues } from '@models/index';
 
-import { User, UserFormValues } from 'models/users/User';
-
-import { router } from 'app/router/Routes';
-import { ROUTES } from 'app/shared/contants';
+import { router } from '@app/router';
+import { ROUTES } from '@shared/constants';
 
 export default class UserStore {
   user: User | null = null;
@@ -20,31 +19,24 @@ export default class UserStore {
   }
 
   public register = async (credentials: UserFormValues) => {
-    try {
-      const user = await agent.Account.register(credentials);
-      this.onLoginOrRegisterEvent(user);
-    } catch (error) {
-      throw error;
-    }
+    const user = await agent.Account.register(credentials);
+    this.onLoginOrRegisterEvent(user);
   };
 
   private onLoginOrRegisterEvent = (user: User) => {
     store.commonStore.setToken(user.token);
 
-    runInAction(() => (this.user = user));
+    runInAction(() => {
+      this.user = user;
+    });
     router.navigate(ROUTES.ACTIVITIES.LIST);
 
     store.modalStore.closeModal();
   };
 
-  // TODO fix unwanted redirection on login
   public login = async (credentials: UserFormValues) => {
-    try {
-      const user = await agent.Account.login(credentials);
-      this.onLoginOrRegisterEvent(user);
-    } catch (error) {
-      throw error;
-    }
+    const user = await agent.Account.login(credentials);
+    this.onLoginOrRegisterEvent(user);
   };
 
   public logout = () => {
@@ -58,7 +50,9 @@ export default class UserStore {
   public getUser = async () => {
     try {
       const user = await agent.Account.current();
-      runInAction(() => (this.user = user));
+      runInAction(() => {
+        this.user = user;
+      });
     } catch (error) {
       console.log(error);
     }

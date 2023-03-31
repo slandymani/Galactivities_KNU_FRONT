@@ -1,8 +1,10 @@
 import { Comment } from 'semantic-ui-react';
-import CommentModel from 'models/comments/Comment';
-import { IMAGE_URIS, ROUTES } from 'app/shared/contants';
-import { Link } from 'react-router-dom';
+import { Comment as CommentModel } from '@models/index';
+
 import { formatDistanceToNow } from 'date-fns';
+import { Link } from 'react-router-dom';
+
+import { IMAGE_URIS, ROUTES } from '@shared/constants';
 
 interface Props {
   comment: CommentModel;

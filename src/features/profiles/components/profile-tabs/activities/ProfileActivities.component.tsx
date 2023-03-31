@@ -1,9 +1,8 @@
 import React, { SyntheticEvent, useEffect } from 'react';
 
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from 'app/store/root.store';
-
-import { UserActivity } from 'models/users/UserProfile';
+import { useMobXStore } from '@store/index';
+import { UserActivity } from '@models/index';
 
 import { Tab, Grid, Header, Card, TabProps } from 'semantic-ui-react';
 import ProfileActivityCard from './ProfileActivityCard.component';
