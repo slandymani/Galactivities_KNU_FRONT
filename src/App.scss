@@ -10,3 +10,30 @@ body {
     rgb(32, 167, 172) 89%
   ) !important;
 }
+
+.react-datepicker__day {
+  cursor: pointer;
+
+  text-decoration: underline;
+  text-underline-offset: 5px;
+
+  &--weekend {
+    color: #DB3424 !important;
+  }
+}
+
+.underlined {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.be-first-text {
+  color: black;
+  font-weight: 500;
+  font-size: 16px !important;
+}
+
+.no-wrap-list {
+  white-space: nowrap;
+  overflow-x: auto;
+}

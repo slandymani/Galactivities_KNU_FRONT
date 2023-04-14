@@ -22,6 +22,7 @@ function DashboardSidebar() {
       <Calendar
         onClickDay={(date) => setFilter(FilterType.BY_DATE, date)}
         value={activityFilter.get(FilterType.BY_DATE) || new Date()}
+        tileClassName="underlined"
       />
     </>
   );

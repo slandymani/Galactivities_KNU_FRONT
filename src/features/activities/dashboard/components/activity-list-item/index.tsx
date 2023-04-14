@@ -1,4 +1,4 @@
-import { Activity } from 'models/activities/Activity';
+import { Activity } from '@models/activities/Activity';
 
 import { Segment } from 'semantic-ui-react';
 import ActivityAttendees from './ActivityAttendees.component';

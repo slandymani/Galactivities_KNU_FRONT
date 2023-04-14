@@ -33,9 +33,9 @@ export const DATE_FORMAT = {
 };
 
 export const IMAGE_URIS = {
-  USER_DEFAULT: 'src/assets/user.png',
-  MAIN_LOGO: 'src/assets/logo.png',
-  BASE: 'src/assets/categoryImages',
+  USER_DEFAULT: '/src/assets/user.png',
+  MAIN_LOGO: '/src/assets/logo.png',
+  BASE: '/src/assets/categoryImages',
 };
 
 export const APP_NAME = 'Galactivities';

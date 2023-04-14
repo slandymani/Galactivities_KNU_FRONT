@@ -17,6 +17,7 @@ function DateInput({ name, ...rest }: Partial<ReactDatePickerProps>) {
         {...rest}
         selected={(field.value && new Date(field.value)) || null}
         onChange={(value) => helpers.setValue(value)}
+        calendarStartDay={1}
       />
       <ErrorLabel meta={meta} />
     </Form.Field>
