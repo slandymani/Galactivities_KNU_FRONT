@@ -5,6 +5,7 @@ export const ROUTES = {
     CREATE: '/create',
     EDIT: '/manage',
     ATTEND: '/attend',
+    APPROVE: '/approve',
   },
   ACCOUNT: {
     CURRENT_USER: '/account',

@@ -6,9 +6,11 @@ import CommonStore from './common.store';
 import ModalStore from './modal.store';
 import ProfileStore from './profile.store';
 import CommentStore from './comment.store';
+import ApproveStore from './approve.store';
 
 interface Store {
   activityStore: ActivityStore;
+  approveStore: ApproveStore;
   userStore: UserStore;
   commonStore: CommonStore;
   modalStore: ModalStore;
@@ -18,6 +20,7 @@ interface Store {
 
 export const store: Store = {
   activityStore: new ActivityStore(),
+  approveStore: new ApproveStore(),
   userStore: new UserStore(),
   commonStore: new CommonStore(),
   modalStore: new ModalStore(),

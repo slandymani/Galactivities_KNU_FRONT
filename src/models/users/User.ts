@@ -3,6 +3,7 @@ export interface User {
   displayName: string;
   token: string;
   imageUri?: string;
+  isAdmin: boolean;
 }
 
 export interface UserFormValues {

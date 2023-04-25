@@ -14,26 +14,20 @@ import ActivityPlaceholder from './activity-list/ActivityPlaceholder.component';
 import useFetchActivities from '../hooks/useFetchActivities';
 import NoActivitiesFound from './activity-list/NoActivitiesFound.component';
 
-function ActivityDashboard() {
+function ApproveActivityDashboard() {
   const [loadingNext, setLoadingNext] = useState(false);
 
-  const { activityStore } = useMobXStore();
+  const { approveStore } = useMobXStore();
   const { fetchActivities, isLoadingInitial, activityRegistry, pagination, setPagingParams, clearStore, setLastPage } =
-    activityStore;
+    approveStore;
 
-    if (activityStore.lastPage == 'approve') {
-      clearStore;
-      setLastPage('all');
-      fetchActivities(true, 1);
-    }
-
-  useFetchActivities(1);
+  useFetchActivities(0);
 
   const handleGetNext = async () => {
     setLoadingNext(true);
 
     setPagingParams(new PagingParams(pagination!.currentPage + 1));
-    await fetchActivities(true, 1);
+    await fetchActivities(true, 0);
 
     setLoadingNext(false);
   };
@@ -41,7 +35,7 @@ function ActivityDashboard() {
   return (
     <Grid>
       <Grid.Column width="10">
-        {activityStore.isLoadingInitial && !loadingNext ? (
+        {approveStore.isLoadingInitial && !loadingNext ? (
           <>
             <ActivityPlaceholder />
             <ActivityPlaceholder />
@@ -77,4 +71,4 @@ function ActivityDashboard() {
   );
 }
 
-export default observer(ActivityDashboard);
+export default observer(ApproveActivityDashboard);
