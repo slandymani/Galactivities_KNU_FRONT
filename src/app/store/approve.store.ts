@@ -22,7 +22,7 @@ export enum FilterType {
   BY_ATTENDANCE = 'isGoing',
 }
 
-export default class ActivityStore {
+export default class ApproveStore {
   activityRegistry = new Map<string, Activity>();
 
   selectedActivity: Activity | undefined = undefined;

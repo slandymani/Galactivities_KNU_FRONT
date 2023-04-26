@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useMobXStore } from '@store/index';
 
-export default function useFetchActivities(status: 0 | 1 | 2 = 1) {
+export default function useFetchActivities(status: 0 | 1 | 2 = 0) {
   const {
-    activityStore: { fetchActivities },
+    approveStore: { fetchActivities },
   } = useMobXStore();
 
   useEffect(() => {

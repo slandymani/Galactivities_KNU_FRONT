@@ -22,40 +22,61 @@ function ActivityAttendees({ attendees }: Props) {
     userStore: { user },
   } = useMobXStore();
 
+  const sortedAttendees = attendees
+    .slice()
+    .sort((a) => {
+      if (a.isFollowing) {
+        return -1;
+      }
+      return 0;
+    })
+    .sort((a) => {
+      if (a.username === user?.username) {
+        return -1;
+      }
+      return 0;
+    });
+
   return (
-    <Segment secondary>
+    <Segment secondary className="no-wrap-list">
       <List horizontal>
-        {attendees.map((attendee) => (
-          <Popup
-            hoverable
-            key={attendee.username}
-            trigger={
-              <List.Item
-                key={attendee.username}
-                as={Link}
-                to={`${ROUTES.PROFILE.BASE}/${attendee.username}`}
-              >
-                <Image
-                  size="mini"
-                  circular
-                  style={
-                    attendee.username === user?.username
-                      ? { ...attendeeImageStyles, borderColor: 'teal' }
-                      : attendee.isFollowing
-                      ? attendeeImageStyles
-                      : null
-                  }
-                  bordered
-                  src={attendee.imageUri || IMAGE_URIS.USER_DEFAULT}
-                />
-              </List.Item>
-            }
-          >
-            <Popup.Content>
-              <ProfileCard profile={attendee} />
-            </Popup.Content>
-          </Popup>
-        ))}
+        {sortedAttendees.length > 0 ? (
+          sortedAttendees.map((attendee) => (
+            <Popup
+              hoverable
+              key={attendee.username}
+              trigger={
+                <List.Item
+                  key={attendee.username}
+                  as={Link}
+                  to={`${ROUTES.PROFILE.BASE}/${attendee.username}`}
+                >
+                  <Image
+                    size="mini"
+                    circular
+                    style={
+                      attendee.username === user?.username
+                        ? { ...attendeeImageStyles, borderColor: 'teal' }
+                        : attendee.isFollowing
+                        ? attendeeImageStyles
+                        : null
+                    }
+                    bordered
+                    src={attendee.imageUri || IMAGE_URIS.USER_DEFAULT}
+                  />
+                </List.Item>
+              }
+            >
+              <Popup.Content>
+                <ProfileCard profile={attendee} />
+              </Popup.Content>
+            </Popup>
+          ))
+        ) : (
+          <List.Item as="p" className="be-first-text underlined">
+            <i>Be the first one to participate!</i>
+          </List.Item>
+        )}
       </List>
     </Segment>
   );

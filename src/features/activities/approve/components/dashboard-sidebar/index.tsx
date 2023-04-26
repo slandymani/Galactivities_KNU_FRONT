@@ -5,25 +5,23 @@ import { useMobXStore } from '@store/index';
 import { FilterType } from '@store/activity.store';
 
 import Calendar from 'react-calendar';
-import { Header } from 'semantic-ui-react';
+import { Header, Segment } from 'semantic-ui-react';
 
-import ActivityFilterItem from './sidebar-items/ActivityFilters.component';
-import ActivitySortItem from './sidebar-items/ActivitySorts.component';
 
 function DashboardSidebar() {
-  const { activityStore } = useMobXStore();
-  const { activityFilter, setFilter } = activityStore;
+  const { approveStore } = useMobXStore();
+  const { activityFilter, setFilter } = approveStore;
 
   return (
     <>
-      <ActivityFilterItem />
-      <ActivitySortItem />
       <Header />
+      <Segment style={{ marginTop: '2rem' }}>
       <Calendar
         onClickDay={(date) => setFilter(FilterType.BY_DATE, date)}
         value={activityFilter.get(FilterType.BY_DATE) || new Date()}
         tileClassName="underlined"
       />
+      </Segment>
     </>
   );
 }

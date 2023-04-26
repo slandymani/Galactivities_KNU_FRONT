@@ -125,6 +125,10 @@ const Activities = {
   delete: (id: string) => requests.delete(`${ROUTES.ACTIVITIES.LIST}/${id}`),
   attend: (id: string) =>
     requests.post(`${ROUTES.ACTIVITIES.LIST}/${id}${ROUTES.ACTIVITIES.ATTEND}`, {}),
+  approve: (activity: ActivityFormValues) =>
+    requests.put(`${ROUTES.ACTIVITIES.LIST}/${activity.id}/approve`, {}),
+  reject: (activity: ActivityFormValues) =>
+    requests.put(`${ROUTES.ACTIVITIES.LIST}/${activity.id}/reject`, {}),
 };
 
 const Account = {
