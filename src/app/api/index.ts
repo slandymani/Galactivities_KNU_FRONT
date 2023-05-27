@@ -69,6 +69,7 @@ axios.interceptors.response.use(
         if (method === 'get' && 'id' in errors) {
           router.navigate(ROUTES.ERROR.NOT_FOUND);
         }
+        // console.log(error, errors);
 
         if (errors) {
           const modalStateErrors: any = [];
@@ -77,6 +78,7 @@ axios.interceptors.response.use(
               modalStateErrors.push(errors[key]);
             }
           });
+          // console.log(modalStateErrors);
           throw modalStateErrors.flat();
         }
         break;

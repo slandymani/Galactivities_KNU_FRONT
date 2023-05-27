@@ -18,8 +18,15 @@ function ApproveActivityDashboard() {
   const [loadingNext, setLoadingNext] = useState(false);
 
   const { approveStore } = useMobXStore();
-  const { fetchActivities, isLoadingInitial, activityRegistry, pagination, setPagingParams, clearStore, setLastPage } =
-    approveStore;
+  const {
+    fetchActivities,
+    isLoadingInitial,
+    activityRegistry,
+    pagination,
+    setPagingParams,
+    clearStore,
+    setLastPage,
+  } = approveStore;
 
   useFetchActivities(0);
 

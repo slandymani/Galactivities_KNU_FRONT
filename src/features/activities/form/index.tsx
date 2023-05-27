@@ -17,8 +17,7 @@ import { SelectInput, TextInput, TextArea, DateInput } from '@shared/components/
 
 function ActivityForm() {
   const { activityStore, approveStore } = useMobXStore();
-  const { isSubmitMode, setSubmitMode, updateActivity } =
-    activityStore;
+  const { isSubmitMode, setSubmitMode, updateActivity } = activityStore;
 
   const { createActivity, fetchActivity } = approveStore;
 

@@ -153,12 +153,12 @@ export default class ActivityStore {
 
   public setLastPage = (page: String) => {
     this.lastPage = page;
-  }
+  };
 
   public clearStore = () => {
     this.activityRegistry = new Map<string, Activity>();
     this.currentLength = 0;
-  }
+  };
 
   public setPagination = (pagination: Pagination) => {
     this.pagination = pagination;
@@ -241,7 +241,7 @@ export default class ActivityStore {
         ...activity,
       } as Activity;
 
-      //this.activityRegistry.set(activityId, updatedActivity);
+      // this.activityRegistry.set(activityId, updatedActivity);
       this.selectedActivity = updatedActivity;
     });
   };

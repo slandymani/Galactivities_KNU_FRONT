@@ -153,12 +153,12 @@ export default class ApproveStore {
 
   public setLastPage = (page: String) => {
     this.lastPage = page;
-  }
+  };
 
   public clearStore = () => {
     this.activityRegistry = new Map<string, Activity>();
     this.currentLength = 0;
-  }
+  };
 
   public setPagination = (pagination: Pagination) => {
     this.pagination = pagination;

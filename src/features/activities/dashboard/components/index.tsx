@@ -18,14 +18,21 @@ function ActivityDashboard() {
   const [loadingNext, setLoadingNext] = useState(false);
 
   const { activityStore } = useMobXStore();
-  const { fetchActivities, isLoadingInitial, activityRegistry, pagination, setPagingParams, clearStore, setLastPage } =
-    activityStore;
+  const {
+    fetchActivities,
+    isLoadingInitial,
+    activityRegistry,
+    pagination,
+    setPagingParams,
+    clearStore,
+    setLastPage,
+  } = activityStore;
 
-    if (activityStore.lastPage == 'approve') {
-      clearStore;
-      setLastPage('all');
-      fetchActivities(true, 1);
-    }
+  if (activityStore.lastPage == 'approve') {
+    clearStore;
+    setLastPage('all');
+    fetchActivities(true, 1);
+  }
 
   useFetchActivities(1);
 

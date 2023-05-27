@@ -22,7 +22,10 @@ function ActivityItemFooter({ activity }: Props) {
   } = useMobXStore();
   const { approveActivity, rejectActivity, isSubmitMode } = approveStore;
 
-  const handleActivityApprove = async (e: SyntheticEvent<HTMLButtonElement>, activity: Activity) => {
+  const handleActivityApprove = async (
+    e: SyntheticEvent<HTMLButtonElement>,
+    activity: Activity,
+  ) => {
     setTarget(e.currentTarget.name);
     await approveActivity(activity);
   };
@@ -49,7 +52,7 @@ function ActivityItemFooter({ activity }: Props) {
         color="red"
         floated="right"
         content="Reject"
-        //disabled={activity.hostUsername !== user?.username}
+        // disabled={activity.hostUsername !== user?.username}
       />
       <Button
         name={activity.id}
@@ -58,7 +61,7 @@ function ActivityItemFooter({ activity }: Props) {
         color="green"
         floated="right"
         content="Approve"
-        //disabled={activity.hostUsername !== user?.username}
+        // disabled={activity.hostUsername !== user?.username}
       />
     </Segment>
   );

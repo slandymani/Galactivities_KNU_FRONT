@@ -18,7 +18,7 @@ export default class CommentStore {
     makeAutoObservable(this);
   }
 
-  public createHubConnection = (activityId?: string) => {
+  public createHubConnection = async (activityId?: string) => {
     if (activityId) {
       this.hubConnection = new HubConnectionBuilder()
         .withUrl(`${import.meta.env.VITE_API_CHAT_URL}?activityId=${activityId}`, {
@@ -30,11 +30,12 @@ export default class CommentStore {
         .configureLogging(LogLevel.Information)
         .build();
 
-      this.hubConnection
+      await this.hubConnection
         .start()
         .catch((error) => console.log(`Error establishing hub connection: ${error}`));
 
       this.hubConnection.on('LoadComments', (comments: Comment[]) => {
+        // console.log(comments);
         runInAction(() => {
           comments.forEach((comment) => {
             comment.createdAt = new Date(comment.createdAt);
@@ -44,6 +45,7 @@ export default class CommentStore {
       });
 
       this.hubConnection.on('ReceiveComment', (comment: Comment) => {
+        // console.log(comment);
         runInAction(() => {
           comment.createdAt = new Date(comment.createdAt);
           this.comments.unshift(comment);

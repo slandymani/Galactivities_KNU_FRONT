@@ -19,13 +19,12 @@ function NavBar() {
             {APP_NAME}
           </Menu.Item>
           <Menu.Item as={NavLink} to={ROUTES.ACTIVITIES.LIST} name="Activities" />
-          <Menu.Item 
-            as={NavLink} 
-            to={ROUTES.ACTIVITIES.APPROVE} 
-            name="Approve Activities" 
-          />
+          <Menu.Item as={NavLink} to={ROUTES.ACTIVITIES.APPROVE} name="Approve Activities" />
           <Menu.Item
-            as={NavLink} to={ROUTES.ACTIVITIES.CREATE} positive content="Create Activity"
+            as={NavLink}
+            to={ROUTES.ACTIVITIES.CREATE}
+            positive
+            content="Create Activity"
           />
           <Menu.Item position="right">
             <Image src={user?.imageUri || IMAGE_URIS.USER_DEFAULT} avatar spaced="right" />
@@ -53,9 +52,7 @@ function NavBar() {
           {APP_NAME}
         </Menu.Item>
         <Menu.Item as={NavLink} to={ROUTES.ACTIVITIES.LIST} name="Activities" />
-        <Menu.Item
-            as={NavLink} to={ROUTES.ACTIVITIES.CREATE} positive content="Create Activity"
-        />
+        <Menu.Item as={NavLink} to={ROUTES.ACTIVITIES.CREATE} positive content="Create Activity" />
         <Menu.Item position="right">
           <Image src={user?.imageUri || IMAGE_URIS.USER_DEFAULT} avatar spaced="right" />
           <Dropdown pointing="top left" text={user?.displayName}>

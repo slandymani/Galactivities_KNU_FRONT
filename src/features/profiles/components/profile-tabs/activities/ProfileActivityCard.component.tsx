@@ -16,17 +16,17 @@ interface Props {
 
 function ProfileActivityCard({ activity }: Props) {
   const { id, date, title, category, moderationStatus } = activity;
-  console.log(moderationStatus)
-  let status = "";
+  console.log(moderationStatus);
+  let status = '';
   switch (moderationStatus) {
     case 0:
-      status = "Pending";
+      status = 'Pending';
       break;
     case 1:
-      status = "Approved";
+      status = 'Approved';
       break;
     case 2:
-      status = "Rejected"
+      status = 'Rejected';
       break;
   }
 
