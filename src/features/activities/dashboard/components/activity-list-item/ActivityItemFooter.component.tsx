@@ -27,6 +27,30 @@ function ActivityItemFooter({ activity }: Props) {
     await deleteActivity(id);
   };
 
+  if (activity.hostUsername === user?.username) {
+    return (
+      <Segment clearing>
+        <span>{activity.description}</span>
+        <Button
+          as={Link}
+          to={`${ROUTES.ACTIVITIES.LIST}/${activity.id}`}
+          color="teal"
+          floated="right"
+          content="View"
+        />
+        <Button
+          name={activity.id}
+          loading={isSubmitMode && target === activity.id}
+          onClick={(e) => handleActivityDelete(e, activity.id)}
+          color="red"
+          floated="right"
+          content="Delete"
+          disabled={false}
+        />
+      </Segment>
+    );
+  }
+
   return (
     <Segment clearing>
       <span>{activity.description}</span>
@@ -36,15 +60,6 @@ function ActivityItemFooter({ activity }: Props) {
         color="teal"
         floated="right"
         content="View"
-      />
-      <Button
-        name={activity.id}
-        loading={isSubmitMode && target === activity.id}
-        onClick={(e) => handleActivityDelete(e, activity.id)}
-        color="red"
-        floated="right"
-        content="Delete"
-        disabled={activity.hostUsername !== user?.username}
       />
     </Segment>
   );

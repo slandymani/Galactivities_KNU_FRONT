@@ -15,7 +15,20 @@ interface Props {
 }
 
 function ProfileActivityCard({ activity }: Props) {
-  const { id, date, title, category } = activity;
+  const { id, date, title, category, moderationStatus } = activity;
+  console.log(moderationStatus)
+  let status = "";
+  switch (moderationStatus) {
+    case 0:
+      status = "Pending";
+      break;
+    case 1:
+      status = "Approved";
+      break;
+    case 2:
+      status = "Rejected"
+      break;
+  }
 
   return (
     <Card as={Link} to={`${ROUTES.ACTIVITIES.LIST}/${id}`} style={CardStyles}>
@@ -29,6 +42,7 @@ function ProfileActivityCard({ activity }: Props) {
         <Card.Meta textAlign="center">
           <div>{format(new Date(date), DATE_FORMAT.DAY_WITH_MONTH_LOWERCASE)}</div>
           <div>{format(new Date(date), DATE_FORMAT.FULL_TIME_ABBR)}</div>
+          <div>{status}</div>
         </Card.Meta>
       </Card.Content>
     </Card>

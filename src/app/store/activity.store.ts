@@ -129,7 +129,7 @@ export default class ActivityStore {
     return params;
   }
 
-  public fetchActivities = async (isLoading: boolean = true, status: 0 | 1 | 2 = 0) => {
+  public fetchActivities = async (isLoading: boolean = true, status: 0 | 1 | 2 = 1) => {
     if (this.currentLength === 0 || this.activityRegistry.size !== this.currentLength) {
       this.setLoadingInitial(isLoading);
     }
@@ -241,7 +241,7 @@ export default class ActivityStore {
         ...activity,
       } as Activity;
 
-      this.activityRegistry.set(activityId, updatedActivity);
+      //this.activityRegistry.set(activityId, updatedActivity);
       this.selectedActivity = updatedActivity;
     });
   };

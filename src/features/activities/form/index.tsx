@@ -16,9 +16,11 @@ import { Button, Divider, Header, Segment } from 'semantic-ui-react';
 import { SelectInput, TextInput, TextArea, DateInput } from '@shared/components/form-inputs';
 
 function ActivityForm() {
-  const { activityStore } = useMobXStore();
-  const { isSubmitMode, setSubmitMode, updateActivity, createActivity, fetchActivity } =
+  const { activityStore, approveStore } = useMobXStore();
+  const { isSubmitMode, setSubmitMode, updateActivity } =
     activityStore;
+
+  const { createActivity, fetchActivity } = approveStore;
 
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
