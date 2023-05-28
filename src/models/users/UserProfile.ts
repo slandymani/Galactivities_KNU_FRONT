@@ -24,6 +24,7 @@ export interface UserActivity {
   title: string;
   category: string;
   date: Date;
+  moderationStatus: 0 | 1 | 2;
 }
 
 export interface ProfileImage {
