@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from '@store/index';
+import { useMobXStore } from '@app/store';
 
 import { format } from 'date-fns';
 import { DATE_FORMAT } from '@shared/constants';
@@ -25,9 +25,11 @@ function ActivityList({ groupColor = 'violet', groupSize = 'huge' }: Props) {
           <Header sub color={groupColor} size={groupSize} style={{ fontSize: '1.2rem' }}>
             {format(Date.parse(group), DATE_FORMAT.MONTH_ABBR_UPPERCASE)}
           </Header>
-          {activities.map((activity) => (
-            <ActivityItem key={activity.id} activity={activity} />
-          ))}
+          {activities
+            .filter(({ moderationStatus }) => moderationStatus === 1)
+            .map((activity) => (
+              <ActivityItem key={activity.id} activity={activity} />
+            ))}
         </Fragment>
       ))}
     </>

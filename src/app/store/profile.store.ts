@@ -179,6 +179,7 @@ export default class ProfileStore {
 
   public updateFollowing = async (username: string, isFollowingAfter: boolean) => {
     this.isUploading = true;
+    console.log(3);
 
     try {
       await agent.Profiles.updateFollowing(username);

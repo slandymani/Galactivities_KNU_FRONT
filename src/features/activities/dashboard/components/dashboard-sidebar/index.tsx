@@ -1,7 +1,7 @@
 import 'react-calendar/dist/Calendar.css';
 import './ReactCalendar.styles.scss';
 
-import { useMobXStore } from '@store/index';
+import { useMobXStore } from '@app/store';
 import { FilterType } from '@store/activity.store';
 
 import Calendar from 'react-calendar';

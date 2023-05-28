@@ -5,7 +5,6 @@ interface Props {
 }
 
 function ValidationErrorList({ errors }: Props) {
-  console.log(errors);
   return (
     <Message error>
       {Array.isArray(errors) ? (

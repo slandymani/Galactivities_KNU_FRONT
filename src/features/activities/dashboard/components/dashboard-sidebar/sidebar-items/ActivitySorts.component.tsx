@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from '@store/index';
+import { useMobXStore } from '@app/store';
 import { SortType } from '@store/activity.store';
 
 import { Header, Menu } from 'semantic-ui-react';

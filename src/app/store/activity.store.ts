@@ -139,6 +139,7 @@ export default class ActivityStore {
       params.append('status', status.toString());
 
       const result = await agent.Activities.list(params);
+      console.log(result, result.data);
       result.data.forEach(this.addActivity);
 
       runInAction(() => {

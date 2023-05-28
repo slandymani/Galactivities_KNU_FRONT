@@ -22,20 +22,11 @@ function ActivityAttendees({ attendees }: Props) {
     userStore: { user },
   } = useMobXStore();
 
-  const sortedAttendees = attendees
-    .slice()
-    .sort((a) => {
-      if (a.isFollowing) {
-        return -1;
-      }
-      return 0;
-    })
-    .sort((a) => {
-      if (a.username === user?.username) {
-        return -1;
-      }
-      return 0;
-    });
+  const sortedAttendees = attendees.slice().sort(({ isFollowing, username }) => {
+    if (username === user?.username) return -1;
+    if (isFollowing) return -1;
+    return 0;
+  });
 
   return (
     <Segment secondary className="no-wrap-list">

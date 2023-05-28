@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from '@store/index';
+import { useMobXStore } from '@app/store';
 
 import { format } from 'date-fns';
 import { DATE_FORMAT } from '@shared/constants';

@@ -14,6 +14,7 @@ export interface Activity {
   isHost: boolean;
   host?: UserProfile;
   attendees: UserProfile[];
+  moderationStatus: 1 | 2 | 0;
 }
 
 export class Activity implements Activity {

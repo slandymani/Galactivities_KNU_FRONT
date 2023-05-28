@@ -1,13 +1,14 @@
 import { useState, SyntheticEvent } from 'react';
 
 import { observer } from 'mobx-react-lite';
-import { useMobXStore } from '@store/index';
+import { useMobXStore } from '@app/store';
 
 import { Link } from 'react-router-dom';
 import { ROUTES } from '@shared/constants';
-import { Activity } from '@models/index';
 
 import { Button, Segment } from 'semantic-ui-react';
+import { toast } from 'react-toastify';
+import { Activity } from '@/models';
 
 interface Props {
   activity: Activity;
@@ -27,11 +28,19 @@ function ActivityItemFooter({ activity }: Props) {
     activity: Activity,
   ) => {
     setTarget(e.currentTarget.name);
+    toast.success('Activity was approved successfully!', {
+      pauseOnHover: false,
+      position: 'top-center',
+    });
     await approveActivity(activity);
   };
 
   const handleActivityReject = async (e: SyntheticEvent<HTMLButtonElement>, activity: Activity) => {
     setTarget(e.currentTarget.name);
+    toast.error('Activity was rejected successfully!', {
+      pauseOnHover: false,
+      position: 'top-center',
+    });
     await rejectActivity(activity);
   };
 
